@@ -1,4 +1,4 @@
-var cacheName = 'KCW-BsR';
+var cacheName = 'KCW-100';
 self.addEventListener('install', function (event) {
 
     event.waitUntil(
@@ -13,11 +13,11 @@ self.addEventListener('install', function (event) {
                 './Images/online.1.jpg',
                 './store.js',
                 './sw-registration.js',
-                './service-worker.js'
+                './service-worker.js',
+                './JS/Comments/Comments.html'
             ]);
         })
     );
-
 }); 
 
 // To delete the old chache if name changed it will delete old chache 
