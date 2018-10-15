@@ -1,0 +1,72 @@
+<div ng-controller="CommentsControll as cmnt">
+    <div style="width: 100%;height: 50px;background: #fbfbfb;float: left;margin-bottom: 20px;">
+        <h3 style="float: left">Review Notes </h3>
+        <div style="float: right;width: 200px; margin-top: 10px;">
+
+            <label ng-if="cmnt.isOnline">
+                <div style="float: left;" class="circleBase type1"></div>
+                <div style="float: left;width: 100px;">Online</div>
+
+                <input type="file" class="input" id="myfile" file-model="myFile"><a href="">Upload Me</a>
+                <input type="button" value="import saved Data" id="indexedDBfile"  ng-click="cmnt.uploadFilebacktpIndexDB()">
+
+                <input type="button" value="synch offline Info" ng-click="cmnt.synchComments()">
+            </label>
+
+            <label ng-if="!cmnt.isOnline">
+                <div style="float: left;" class="circleBase type2"></div>
+                <div style="float: left;width: 100px;">Offline</div>
+                <input type="button" value="save offline work" ng-click="cmnt.takeIndexedDBbkp()" />
+            </label>
+        </div>
+    </div>
+    <textarea ng-model="CommentDesc">
+
+   </textarea>
+    <input type="button" value="addComments" ng-click="cmnt.SaveComments()" />
+    <div>
+        <ul>
+            <li ng-repeat="comment in cmnt.Comments">
+                <label>{{comment.CommentDesc}}</label>
+            </li>
+        </ul>
+    </div>
+
+    <ul style="list-style: none;">
+        <li>
+            <input type="checkbox" /> 1.1 Activity one</li>
+        <li>
+            <input type="checkbox" /> 2.2 Activity two</li>
+        <li>
+            <input type="checkbox" /> 3.3 Activity three</li>
+    </ul>
+
+    <input type="button" value="downloadfile" ng-click="cmnt.downloadfile()">
+
+
+
+
+
+</div>
+
+<style>
+    .circleBase {
+        border-radius: 50%;
+        behavior: url(PIE.htc);
+        /* remove if you don't care about IE8 */
+    }
+
+    .type2 {
+        width: 15px;
+        height: 15px;
+        background: red;
+        border: 3px solid red;
+    }
+
+    .type1 {
+        width: 15px;
+        height: 15px;
+        background: green;
+        border: 3px solid green;
+    }
+</style>

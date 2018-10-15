@@ -1,0 +1,29 @@
+<h1>my form</h1>
+<div ng-controller="FormPageControll as frm">
+    <div id="formWrapper" ng-if='frm.portfolios != null'>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>ProjectName</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="portfolio in frm.portfolios track by $index">
+                    <td>
+                        <input type="text" value="{{portfolio.ProjectName}}" />
+                    </td>
+                    <td>
+                        <input type="text" value="{{portfolio.Status}}" ng-model="portfolio.Status" />
+                    </td>
+                    <td>
+                        <input type="button" value="update" ng-click="frm.updatePortfolio(portfolio)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
